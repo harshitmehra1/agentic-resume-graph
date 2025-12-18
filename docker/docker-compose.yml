@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  arangodb:
+    image: arangodb:3.11
+    container_name: arangodb_resume_graph
+    ports:
+      - "8529:8529"
+    environment:
+      ARANGO_ROOT_PASSWORD: rootpassword
+    volumes:
+      - arango_data:/var/lib/arangodb3
+    restart: unless-stopped
+
+volumes:
+  arango_data:
